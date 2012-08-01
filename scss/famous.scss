@@ -1,0 +1,54 @@
+@import "compass";
+@import "compass/css3/background-size";
+@import "compass/css3/transition";
+
+html {
+	height: 100%;
+	position: relative;
+	background-color: #EFEFEF;
+	@include background-size(cover);
+	@include background-image(linear-gradient(transparent, #DDD));
+}
+
+body {
+	font: 18px/1 'Jura', sans-serif;
+	color: #444;
+}
+
+strong {
+	font-weight: 600;
+	color: black;
+	font-size: larger;
+}
+
+.name {
+	margin: 3em 1em 2em;
+	text-align: center;
+	h1 {
+		font-family: 'Fredericka the Great', cursive;
+		font-size: 5em;
+		margin: 0;
+	}
+	h2 {
+		margin: 1em 0 0;
+		font-size: 1.5em;
+		color: #666;
+	}
+}
+
+form {
+	margin: 0 auto 1em;
+	text-align: center;
+	width: 18em;
+	a {
+		font-size: 1em;
+		cursor: pointer;
+		text-decoration: none;
+		@include transition(color 500ms);
+		&:hover {
+			color: #999;
+			strong { color: inherit; }
+		}
+	}
+}
+
