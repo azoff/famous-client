@@ -2,6 +2,26 @@
 		<h1>{name}</h1>
 		<h2>is worth <strong>{amount} {currency}</strong></h2>
 	</div>
-	<form>
-		<a>Is <strong>your name</strong> worth more?</a>
+	<form action="#" method="post">
+		<a class="on">Is <strong>your name</strong> worth more?</a>
+		<fieldset>
+			<label for="number">Card Number</label>
+			<input
+				type="text"
+				size="20"
+				autocomplete="off"
+				id="number"
+				name="number"
+				placeholder="4242424242424242"
+			/>
+			<label for="cvc">CVC</label>
+			<input
+				type="text"
+				size="4"
+				autocomplete="off"
+				id="cvc"
+				name="cvc"
+				placeholder="123"
+			/>
+		</fieldset>
 	</form>

@@ -22,7 +22,7 @@ strong {
 }
 
 .name {
-	margin: 3em 1em 2em;
+	margin: 3em 1em 1em;
 	text-align: center;
 	h1 {
 		font-family: 'Fredericka the Great', cursive;
@@ -33,6 +33,9 @@ strong {
 		margin: 1em 0 0;
 		font-size: 1.5em;
 		color: #666;
+		strong {
+			text-transform: uppercase;
+		}
 	}
 }
 
@@ -40,14 +43,38 @@ form {
 	margin: 0 auto 1em;
 	text-align: center;
 	width: 18em;
-	a {
+	@include opacity(0);
+	.js & {
+		@include transition(opacity 1s 500ms);
+		@include opacity(1);
+	}
+	.on {
 		font-size: 1em;
+		line-height: 1.5;
 		cursor: pointer;
 		text-decoration: none;
-		@include transition(color 500ms);
+		height: 1.5em;
+		overflow: hidden;
+		display: inline-block;
+		@include opacity(1);
+		@include transition-property(color height opacity);
+		@include transition-duration(500ms);
 		&:hover {
 			color: #999;
 			strong { color: inherit; }
+		}
+	}
+	fieldset {
+		@include opacity(0);
+		@include transition(opacity 500ms);
+	}
+	&.active {
+		.on {
+			@include opacity(0);
+			height: 0;
+		}
+		fieldset {
+			@include opacity(1);
 		}
 	}
 }
