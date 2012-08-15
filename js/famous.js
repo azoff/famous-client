@@ -8,7 +8,7 @@
 		form.addClass('ready');
 	}
 
-	function authorize() {
+	function authorizeStripe(config) {
 		stripe.setPublishableKey(config.stripeKey);
 	}
 
@@ -17,7 +17,7 @@
 		info  = form.find('#info');
 		submit = form.find('#submit');
 		if (!config) {
-			config = $.getJSON('conf/' + doc.domain + '.json').then(authorize);
+			config = $.getJSON('conf/' + doc.domain + '.json').then(authorizeStripe);
 		}
 	}
 
