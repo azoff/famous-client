@@ -17,7 +17,8 @@
 		info  = form.find('#info');
 		fields = form.find('input,select');
 		if (!config) {
-			config = $.getJSON('conf/' + doc.domain + '.json').then(authorizeStripe);
+			config = $.getJSON('conf/' + doc.domain + '.json');
+			config.then(authorizeStripe);
 		}
 	}
 
@@ -69,8 +70,8 @@
 		notify('Server Error: ' + error, 'fail');
 	}
 
-	function chargesLeapfrog(apiHost, token, params) {
-		return $.getJSON(apiHost + '/charges.leapfrog?callback=?', {
+	function chargesLeapfrog(config, token, params) {
+		return $.getJSON(config[0].apiServer + '/charges.leapfrog?callback=?', {
 			amount: params.charge*100,
 			token: token,
 			description: params.description
@@ -82,9 +83,7 @@
 			if (token.error) {
 				notify(token.error.message, 'fail');
 			} else if(token.id) {
-				config.then(function(config){
-					chargesLeapfrog(config.apiHost, token.id, params);
-				});
+				$.when(config, token.id, params).then(chargesLeapfrog);
 			} else {
 				notify('Unable to process payment at this time', 'fail');
 			}
