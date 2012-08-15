@@ -2,26 +2,26 @@
 
 	"use strict";
 
-	var form, info, client, config, submit;
+	var form, info, config, submit;
 
-	function authorizeStripe(config) {
-		stripe.setPublishableKey(config.stripeKey);
+	function ready() {
+		form.addClass('ready');
 	}
 
-	function formReady() {
-		form.addClass('ready');
+	function authorize() {
+		stripe.setPublishableKey(config.stripeKey);
 	}
 
 	function setGlobals() {
 		form   = $('form');
 		info  = form.find('#info');
 		submit = form.find('#submit');
-		config = $.getJSON('conf/' + doc.domain + '.json');
+		if (!config) {
+			config = $.getJSON('conf/' + doc.domain + '.json').then(authorize);
+		}
 	}
 
 	function addListeners() {
-		config.then(authorizeStripe);
-		config.then(formReady);
 		form.on('click', 'a', toggleForm);
 		form.on('submit', getToken);
 	}
@@ -55,7 +55,11 @@
 		if (response.error) {
 			notify(response.error, 'fail');
 		} else if (response.content) {
-			doc.body.innerHTML = response.content;
+			form.removeClass('ready');
+			setTimeout(function(){
+				doc.body.innerHTML = response.content;
+				init();
+			}, 700);
 		} else {
 			notify('You Win! Please reload the page.', 'pass');
 		}
@@ -91,7 +95,7 @@
 
 	function init() {
 		setGlobals();
-		config.then(addListeners);
+		config.then(addListeners).then(ready);
 	}
 
 	$(init);
