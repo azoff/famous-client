@@ -1,4 +1,4 @@
 {
 	"stripeKey": "pk_05HXH8xcQXu5XlnBMYjBE7RZ0Qqwa",
-	"apiServer": "http://localhost:1337"
+	"apiHost": "http://localhost:1337"
 }
