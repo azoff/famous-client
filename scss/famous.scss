@@ -109,7 +109,7 @@ form {
 			border: solid 1px $main-gray;
 			@include border-radius(3px);
 		}
-		#description, #exp_month, #card {
+		#description, #exp_month, #number {
 			@include box-sizing(border-box);
 			width: 11.5em;
 		}

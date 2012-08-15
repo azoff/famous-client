@@ -36,8 +36,8 @@
 	}
 
 	function getToken() {
-		notify('Processing, please wait...', 'pass');
 		var params = formParams();
+		notify('Processing, please wait...', 'pass');
 		stripe.createToken(params, responseHandler(params));
 		return false;
 	}
