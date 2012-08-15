@@ -104,8 +104,18 @@ form {
 		input, select {
 			font: 16px/1 'Jura', sans-serif;
 			padding: 0.5em;
+			outline: none;
+			color: #666;
+			background-color: #ECECEC;
+			border: solid 1px $main-gray;
+			@include transition(border-color 500ms, background-color 500ms, color 500ms);
+			&:focus {
+				background-color: #FFF;
+				border-color: #AAA;
+				color: #444;
+			}
 		}
-		[type=text], select {
+		[type=text], [type=number], select {
 			border: solid 1px $main-gray;
 			@include border-radius(3px);
 		}
