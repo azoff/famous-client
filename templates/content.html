@@ -11,8 +11,8 @@
 					type="text" placeholder="4 to 64 characters..." pattern=".{4,64}" />
 			</section>
 			<section>
-				<label for="amount">Its Value</label>
-				<input required type="number" id="amount" name="amount" placeholder="{next}..."
+				<label for="charge">Its Value</label>
+				<input required type="number" id="charge" name="charge" placeholder="{next}..."
 				       min="{next}" value="{next}" step="0.01" />
 			</section>
 			<section>
@@ -59,7 +59,8 @@
 				</select>
 			</section>
 			<section class="submit">
-				<input type="submit" value="Make History." />
+				<input id="submit" type="submit" value="Make History." />
 			</section>
+			<section id="info"></section>
 		</fieldset>
 	</form>

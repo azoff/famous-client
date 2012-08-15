@@ -48,8 +48,8 @@ form {
 	text-align: center;
 	@include opacity(0);
 	@include box-sizing(border-box);
-	.js & {
-		@include transition(opacity 1s 500ms);
+	&.ready {
+		@include transition(opacity 500ms);
 		@include opacity(1);
 	}
 	.on {
@@ -85,6 +85,18 @@ form {
 			position: relative;
 			left: 2px;
 		}
+		&#info {
+			width: 9em;
+			display: none;
+			padding-left: 1em;
+			background-color: white;
+			background-color: fade-out(white, 0.3);
+			&.fail { display: block; color: red; @include opacity(1); }
+			&.pass { display: block; color: darkgreen; @include opacity(1); }
+			@include opacity(0);
+			@include border-radius(3px);
+			@include transition(opacity 500ms);
+		}
 		input, select {
 			font: 16px/1 'Jura', sans-serif;
 			padding: 0.5em;
@@ -97,7 +109,7 @@ form {
 			@include box-sizing(border-box);
 			width: 11.5em;
 		}
-		#amount, #exp_year, #cvc {
+		#charge, #exp_year, #cvc {
 			width: 7em;
 			@include box-sizing(border-box);
 		}
