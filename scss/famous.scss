@@ -1,5 +1,7 @@
 @import "compass";
 @import "compass/css3/background-size";
+@import "compass/css3/box-sizing";
+@import "compass/css3/border-radius";
 @import "compass/css3/transition";
 
 html {
@@ -40,39 +42,71 @@ strong {
 }
 
 form {
+	$main-gray: #999;
+	width: 20em;
 	margin: 0 auto 1em;
 	text-align: center;
-	width: 18em;
 	@include opacity(0);
+	@include box-sizing(border-box);
 	.js & {
 		@include transition(opacity 1s 500ms);
 		@include opacity(1);
 	}
 	.on {
 		font-size: 1em;
-		line-height: 1.5;
 		cursor: pointer;
 		text-decoration: none;
-		height: 1.5em;
-		overflow: hidden;
-		display: inline-block;
 		@include opacity(1);
-		@include transition-property(color height opacity);
-		@include transition-duration(500ms);
+		@include transition(color 500ms);
 		&:hover {
-			color: #999;
+			color: $main-gray;
 			strong { color: inherit; }
 		}
 	}
 	fieldset {
+		text-align: left;
+		overflow: hidden;
+		padding: 0.5em 0.5em 0.7em;
+		border-color: $main-gray;
+		background-color: $main-gray;
+		background-color: fade-out($main-gray, 0.2);
 		@include opacity(0);
+		@include border-radius(5px);
+		@include box-sizing(border-box);
 		@include transition(opacity 500ms);
 	}
-	&.active {
-		.on {
-			@include opacity(0);
-			height: 0;
+	section {
+		float: left;
+		padding: 0.5em;
+		label {
+			color: white;
+			display: block;
+			font-size: smaller;
+			position: relative;
+			left: 2px;
 		}
+		input, select {
+			font: 16px/1 'Jura', sans-serif;
+			padding: 0.5em;
+		}
+		[type=text], select {
+			border: solid 1px $main-gray;
+			@include border-radius(3px);
+		}
+		#description, #exp_month, #number {
+			@include box-sizing(border-box);
+			width: 11.5em;
+		}
+		#amount, #exp_year, #cvc {
+			width: 7em;
+			@include box-sizing(border-box);
+		}
+		&.submit {
+			clear: both;
+		}
+	}
+	&.active {
+		.on { display: none; }
 		fieldset {
 			@include opacity(1);
 		}
