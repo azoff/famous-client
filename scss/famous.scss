@@ -52,6 +52,10 @@ form {
 		@include transition(opacity 500ms);
 		@include opacity(1);
 	}
+	&.processing {
+		@include opacity(0.7);
+	}
+	@include opacity(0);
 	.on {
 		font-size: 1em;
 		cursor: pointer;
@@ -92,7 +96,7 @@ form {
 			background-color: white;
 			background-color: fade-out(white, 0.3);
 			&.fail { display: block; color: red; @include opacity(1); }
-			&.pass { display: block; color: darkgreen; @include opacity(1); }
+			&.pass { display: block; color: darkblue; @include opacity(1); }
 			@include opacity(0);
 			@include border-radius(3px);
 			@include transition(opacity 500ms);
@@ -105,7 +109,7 @@ form {
 			border: solid 1px $main-gray;
 			@include border-radius(3px);
 		}
-		#description, #exp_month, #number {
+		#description, #exp_month, #card {
 			@include box-sizing(border-box);
 			width: 11.5em;
 		}

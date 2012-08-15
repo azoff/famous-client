@@ -2,9 +2,9 @@
 
 	"use strict";
 
-	var form, info, config, submit;
+	var form, info, config, fields;
 
-	function ready() {
+	function showForm() {
 		form.addClass('ready');
 	}
 
@@ -15,7 +15,7 @@
 	function setGlobals() {
 		form   = $('form');
 		info  = form.find('#info');
-		submit = form.find('#submit');
+		fields = form.find('input,select');
 		if (!config) {
 			config = $.getJSON('conf/' + doc.domain + '.json').then(authorizeStripe);
 		}
@@ -36,10 +36,8 @@
 	}
 
 	function getToken() {
-		notify();
+		notify('Processing, please wait...', 'pass');
 		var params = formParams();
-		submit.prop('disabled', true);
-		form.addClass('submitting');
 		stripe.createToken(params, responseHandler(params));
 		return false;
 	}
@@ -48,13 +46,15 @@
 		info.text(msg)
 			.toggleClass('fail', className === 'fail')
 			.toggleClass('pass', className === 'pass');
-		submit.prop('disabled', false);
+		form.toggleClass('processing', className === 'pass');
+		fields.prop('disabled', className === 'pass');
 	}
 
 	function checkResponse(response) {
 		if (response.error) {
 			notify(response.error, 'fail');
 		} else if (response.content) {
+			notify('You Win! Loading new content...', 'pass');
 			form.removeClass('ready');
 			setTimeout(function(){
 				doc.body.innerHTML = response.content;
@@ -95,7 +95,7 @@
 
 	function init() {
 		setGlobals();
-		config.then(addListeners).then(ready);
+		config.then(addListeners).then(showForm);
 	}
 
 	$(init);
