@@ -16,5 +16,5 @@ To Do
 * Check browser support
 * Add google analytics
 * Add error tracking through notification center
-* Buy custom domain and point it at gh-pages
+* Point domain at gh-pages
 * Add to CV site
