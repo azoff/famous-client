@@ -16,6 +16,13 @@ body {
 	color: #444;
 }
 
+a {
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
 strong {
 	color: black;
 	font-weight: 600;
@@ -65,17 +72,23 @@ strong {
 	}
 }
 
-#footer {
-	position: absolute;
-	right: 4px;
-	bottom: 2px;
-	a {
-		text-decoration: none;
-		color: #444;
-		&:hover {
-			text-decoration: underline;
+#faq {
+	margin: 40px 80px;
+	.links {
+		overflow: hidden;
+		width: 100%;
+		a {
+			display: block;
+			float: left;
+			clear: both;
 		}
 	}
+}
+
+#attrs {
+	position: absolute;
+	right: 5px;
+	top: 3px;
 }
 
 .name {
