@@ -1,8 +1,8 @@
-(function(doc, $, stripe){
+(function(doc, $, stripe, socialite){
 
 	"use strict";
 
-	var form, info, config, fields;
+	var form, info, config, fields, toggle, social;
 
 	function showForm() {
 		form.addClass('ready');
@@ -14,17 +14,28 @@
 
 	function setGlobals() {
 		form   = $('form');
-		info  = form.find('#info');
+		info   = form.find('#info');
 		fields = form.find('input,select');
+		toggle = $('#social-toggle');
+		social = $('#social');
 		if (!config) {
 			config = $.getJSON('conf/' + doc.domain + '.json');
 			config.then(authorizeStripe);
 		}
 	}
 
+	function socialToggle() {
+		if (!social.hasClass('loaded')) {
+			socialite.load(social.addClass('loaded').get(0));
+		}
+		social.toggleClass('visible');
+		toggle.text(toggle.text()==='+'?'-':'+');
+	}
+
 	function addListeners() {
 		form.on('click', 'a', toggleForm);
 		form.on('submit', getToken);
+		toggle.on('click', socialToggle);
 	}
 
 	function formParams() {
@@ -101,4 +112,4 @@
 
 	$(init);
 
-})(document, jQuery, Stripe);
+})(document, jQuery, Stripe, Socialite);

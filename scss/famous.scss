@@ -5,8 +5,7 @@
 @import "compass/css3/transition";
 
 html {
-	height: 100%;
-	position: relative;
+	min-height: 100%;
 	background-color: #EFEFEF;
 	@include background-size(cover);
 	@include background-image(linear-gradient(transparent, #DDD));
@@ -18,9 +17,65 @@ body {
 }
 
 strong {
-	font-weight: 600;
 	color: black;
+	font-weight: 600;
 	font-size: larger;
+}
+
+#social {
+	.socialite {
+		width: 56px;
+		position: relative;
+		margin-left: -80px;
+		display: inline-block;
+		@include transition(margin-left 500ms);
+	}
+	&.visible {
+		.socialite.socialite-loaded {
+			margin-left: 0;
+		}
+	}
+	list-style: none;
+	position: fixed;
+	padding: 6px 0 0 2px;
+	left: 0;
+	top: 0;
+}
+
+#social-toggle {
+	$size: 20px;
+	@include border-radius(2px);
+	background-color: #444;
+	text-align: center;
+	font-weight: bold;
+	position: fixed;
+	display: block;
+	color: #EEE;
+	float: left;
+	width: $size;
+	height: $size;
+	line-height: $size - 2px;
+	vertical-align: middle;
+	font-family: sans;
+	cursor: pointer;
+	left: 2px;
+	top: 2px;
+	&:hover {
+		background-color: #666;
+	}
+}
+
+#footer {
+	position: absolute;
+	right: 4px;
+	bottom: 2px;
+	a {
+		text-decoration: none;
+		color: #444;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 }
 
 .name {

@@ -15,10 +15,33 @@
 </head>
 <body>
 {content}
+<div id="social-toggle">+</div>
+<ul id="social">
+	<li>
+		<a href="http://twitter.com/share" class="socialite twitter-share" data-via="azoff" data-text="famousname.us" data-url="http://famousname.us" data-count="vertical" rel="nofollow" target="_blank">
+			<span class="vhidden">Share on Twitter</span>
+		</a>
+	</li>
+	<li>
+		<a href="https://plusone.google.com/_/+1/confirm?hl=en&amp;url=http://famousname.us" class="socialite googleplus-one" data-size="tall" data-href="http://famousname.us" rel="nofollow" target="_blank">
+			<span class="vhidden">Share on Google+</span>
+		</a>
+	</li>
+	<li>
+		<a href="http://www.facebook.com/sharer.php?u=http://famousname.us&amp;t=Socialite.js" class="socialite facebook-like" data-href="http://famousname.us" data-send="false" data-layout="box_count" data-width="60" data-show-faces="false" rel="nofollow" target="_blank">
+			<span class="vhidden">Share on Facebook</span>
+		</a>
+	</li>
+</ul>
+<div id="footer">
+	<a href="http://twitter.com/azoff">@azoff</a> |
+	<a href="/terms.html">terms</a>
+</div>
 <script src="/js/modernizr.min.js"></script>
 <script>
 	yepnope([
 		'https://js.stripe.com/v1',
+		'/js/socialite.min.js',
 		'/js/jquery.min.js',
 		'/js/famous.js'
 	]);
