@@ -19,8 +19,8 @@
 	<a href="http://twitter.com/azoff">@azoff</a>
 </div>
 <div class="name">
-	<h1>Coca Cola</h1>
-	<h2>is worth <strong>1,000.28 usd</strong></h2>
+	<h1>Test Name</h1>
+	<h2>is worth <strong>1,000.29 usd</strong></h2>
 </div>
 <form action="#" method="post">
 	<a class="on">Is <strong>your title</strong> worth more?</a>
@@ -32,8 +32,8 @@
 		</section>
 		<section>
 			<label for="charge">Its Value</label>
-			<input required type="number" id="charge" name="charge" placeholder="1000.29..."
-			       min="1000.29" value="1000.29" step="0.01" />
+			<input required type="number" id="charge" name="charge" placeholder="1000.3..."
+			       min="1000.3" value="1000.3" step="0.01" />
 		</section>
 		<section>
 			<label for="number">Card Number</label>
@@ -104,11 +104,13 @@
 </ul>
 <script src="/js/modernizr.min.js"></script>
 <script>
+	window._gaq = [['_setAccount', 'UA-34214767-1'],['_trackPageview']];
 	yepnope([
 		'https://js.stripe.com/v1',
 		'/js/socialite.min.js',
 		'/js/jquery.min.js',
-		'/js/famous.js'
+		'/js/famous.js',
+		'http://www.google-analytics.com/ga.js'
 	]);
 </script>
 </body>
