@@ -26,14 +26,16 @@
 		Feel free to get in touch if you have any questions!
 	</p>
 
-	<a href="#about">What this all about?</a>
-	<a href="#who">Who are you?</a>
-	<a href="#real">Is this for real?</a>
-	<a href="#idea">How did you come up with the idea?</a>
-	<a href="#money">Where does the money go?</a>
-	<a href="#why">Why should I pay to display my title?</a>
-	<a href="#guarantee">How long will the site be online?</a>
-	<a href="#future">What can I expect in the future?</a>
+	<div class="links">
+		<a href="#about">What this all about?</a>
+		<a href="#who">Who are you?</a>
+		<a href="#real">Is this for real?</a>
+		<a href="#idea">How did you come up with the idea?</a>
+		<a href="#money">Where does the money go?</a>
+		<a href="#why">Why should I pay to display my title?</a>
+		<a href="#guarantee">How long will the site be online?</a>
+		<a href="#future">What can I expect in the future?</a>
+	</div>
 
 	<h2 id="about">What this all about?</h2>
 	<p>
@@ -118,11 +120,13 @@
 </ul>
 <script src="/js/modernizr.min.js"></script>
 <script>
+	window._gaq = [['_setAccount', 'UA-34214767-1'],['_trackPageview']];
 	yepnope([
 		'https://js.stripe.com/v1',
 		'/js/socialite.min.js',
 		'/js/jquery.min.js',
-		'/js/famous.js'
+		'/js/famous.js',
+		'http://www.google-analytics.com/ga.js'
 	]);
 </script>
 </body>
