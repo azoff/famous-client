@@ -6,9 +6,8 @@
 
 html {
 	min-height: 100%;
-	background-color: #EFEFEF;
-	@include background-size(cover);
-	@include background-image(linear-gradient(transparent, #DDD));
+	background-color: #FEFEFE;
+	-webkit-font-smoothing: antialiased;
 }
 
 body {
@@ -95,7 +94,7 @@ strong {
 	margin: 3em 1em 1em;
 	text-align: center;
 	h1 {
-		font-family: 'Fredericka the Great', cursive;
+		font-family: 'Share', cursive;
 		font-size: 5em;
 		margin: 0;
 	}
@@ -207,3 +206,11 @@ form {
 	}
 }
 
+#footer {
+	text-align: center;
+	font-size: 0.8em;
+	position: absolute;
+	width: 100%;
+	line-height: 1.2;
+	bottom: 5px;
+}
