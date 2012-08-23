@@ -43,7 +43,7 @@ strong {
 	}
 	list-style: none;
 	position: fixed;
-	padding: 6px 0 0 2px;
+	padding: 7px 0 0 2px;
 	left: 0;
 	top: 0;
 }
@@ -59,10 +59,8 @@ strong {
 	color: #EEE;
 	float: left;
 	width: $size;
-	height: $size;
-	line-height: $size - 2px;
-	vertical-align: middle;
-	font-family: sans;
+	line-height: $size+1px;
+	font-family: monospace;
 	cursor: pointer;
 	left: 2px;
 	top: 2px;
@@ -157,8 +155,10 @@ form {
 			left: 2px;
 		}
 		&#info {
-			width: 9em;
+			float: right;
 			display: none;
+			max-width: 12em;
+			font-size: 0.8em;
 			padding-left: 1em;
 			background-color: white;
 			background-color: fade-out(white, 0.3);
